@@ -38,8 +38,6 @@
       </div>
     </div> -->
 
-
-
   <!-- <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
@@ -162,7 +160,13 @@
           <div class="alert alert-success" v-if="show">
           This si some thing about notification 
           </div>
-        </transition>        
+        </transition>     
+
+         <transition name="slide">
+          <div class="alert alert-warning" v-if="show">
+          This si some thing about notification 
+          </div>
+        </transition>    
       </div>
     </div>
   </div>
@@ -304,5 +308,43 @@ export default {
     opacity: 0;
   }
 
+  /* Slide transion effect */
+
+  .slide-enter {
+    opacity: 0;
+  }
+  .slide-enter-active {
+    transition: opacity 1s;
+    animation: slide-in 1s ease-out forwards;
+  }
+
+  .slide-leave{
+
+  }
+  .slide-leave-active {
+    transition: opacity 1s;
+    opacity: 0;
+    animation: slide-out 1s ease-out forwards;
+  }
+
+  /* key frame */
+
+  @keyframes slide-in {
+    from {
+      transform: translateY(20px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(20px);
+    }
+  }
 </style>
 
