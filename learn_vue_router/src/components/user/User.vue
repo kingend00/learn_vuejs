@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
       <h1>This is User component</h1> 
       <button class="btn btn-danger" @click="backHome">
           Back go to Home
@@ -10,6 +10,9 @@
        <button class="btn btn-warning" @click="goProfile">
           Back go to AUser profile
       </button>
+      <router-view></router-view>
+      <router-view name="user01"></router-view>
+      <router-view name="user02"></router-view>
     </div>
 </template>
 

@@ -2,6 +2,8 @@
     <div>
         <h1>This is Admin profile</h1>
         <p>Id Profile {{ id }}</p>
+        <router-link :to="id+'/child'">Child User Details</router-link>
+        <router-view class="route-view"></router-view>
     </div>
 </template>
 
@@ -21,6 +23,8 @@ export default {
 }
 </script>
 
-<style lang="">
-    
+<style lang="" scoped>
+.route-view {
+    color:red;
+}
 </style>

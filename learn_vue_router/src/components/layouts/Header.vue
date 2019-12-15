@@ -15,8 +15,12 @@
                     <router-link tag="a" :to="'/user'" class="nav-item" active-class="active" exact>
                     <a href="" class="nav-link">User</a></router-link>
 
-                    <router-link tag="a" :to="'/user/1'" class="nav-item" active-class="active" exact>
+                    <router-link tag="a" :to="'/user/1'" class="nav-item" active-class="active" exact>                 
                     <a href="" class="nav-link">Admin profile</a></router-link>
+
+                    <a href="#" class="nav-link" @click="goBack">Go back</a>
+                    <router-link to="/user-12313" replace>Pathmatch User</router-link>
+
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -29,10 +33,17 @@
 </template>
 <script>
 export default {
-    
+    methods :{
+        goBack(){
+            window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+        }
+    }
 }
 </script>
 
 <style lang="">
-    
+.router-link-active {
+    margin-top: 2%;
+    color:red;
+}
 </style>
