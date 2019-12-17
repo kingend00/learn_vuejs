@@ -12,6 +12,8 @@ Vue.use(VueRouter)
 new Vue({
   el: '#app',
   components: { App },
-  router : new VueRouter({routes,mode:'history'}),
+  router : new VueRouter({routes,
+    mode:'history',
+  }),
   template: '<App/>'
 })

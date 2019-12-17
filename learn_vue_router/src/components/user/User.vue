@@ -10,9 +10,6 @@
        <button class="btn btn-warning" @click="goProfile">
           Back go to AUser profile
       </button>
-      <router-view></router-view>
-      <router-view name="user01"></router-view>
-      <router-view name="user02"></router-view>
     </div>
 </template>
 

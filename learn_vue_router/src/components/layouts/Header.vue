@@ -15,7 +15,7 @@
                     <router-link tag="a" :to="'/user'" class="nav-item" active-class="active" exact>
                     <a href="" class="nav-link">User</a></router-link>
 
-                    <router-link tag="a" :to="'/user/1'" class="nav-item" active-class="active" exact>                 
+                    <router-link tag="a" :to="{name:'userDetails',params:{id:'1'},query:{q:'1234'}}" class="nav-item" active-class="active" exact>                 
                     <a href="" class="nav-link">Admin profile</a></router-link>
 
                     <a href="#" class="nav-link" @click="goBack">Go back</a>
@@ -29,10 +29,26 @@
                 </form>
             </div>
         </nav>
+    <transition :name="transitionName">
+        <router-view name="user01"></router-view>
+    </transition>
+        <router-view name="user02"></router-view>
+
     </div>
 </template>
 <script>
 export default {
+    data () {
+        return {
+        transitionName: 'slide-left'
+        }
+    },
+    beforeRouteUpdate (to, from, next) {
+        const toDepth = to.path.split('/').length
+        const fromDepth = from.path.split('/').length
+        this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        next()
+    },
     methods :{
         goBack(){
             window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
